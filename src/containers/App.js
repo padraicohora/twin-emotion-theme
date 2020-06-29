@@ -4,6 +4,8 @@ import Default from "./Default";
 import Sidebar from "../components/Sidebar";
 import {THEME} from "../styles/theme";
 import { ThemeProvider } from 'emotion-theming'
+import { Global, css } from "@emotion/core";
+import {cssGlobal} from "../styles/bsOverrides";
 
 class App extends React.Component{
     constructor(props){
@@ -13,8 +15,9 @@ class App extends React.Component{
             title: "Light Theme",
             theme:  {...THEME.MODE.LIGHT, ...THEME.COLORS.BLUE}
         };
-
+        console.log(`theme`, THEME)
     }
+
 
     onChangeTheme(theme){
         const {mode = false, color = "BLUE"} = theme;
@@ -25,11 +28,14 @@ class App extends React.Component{
             theme: {...THEME.MODE[themeMode], ...THEME.COLORS[color]}
         })
     }
-F
+
     render() {
         return <ThemeProvider theme={this.state.theme}>
+            <Global
+                styles={cssGlobal}
+            />
             <main className={"vh-100 d-flex flex-column overflow-hidden"}>
-            <Header onChangeTheme={this.onChangeTheme.bind(this)} />
+            <Header onChangeTheme={this.onChangeTheme.bind(this)}  />
             <div className={"d-flex h-100"}>
                 <Sidebar/>
                 <Default/>

@@ -4,35 +4,44 @@ import { FaHome , FaRegUserCircle, FaUserCircle, FaCubes, FaInfo} from 'react-ic
 import {RiTeamLine} from "react-icons/ri";
 import {AiFillSetting} from "react-icons/ai";
 import { IconContext } from "react-icons";
+import {useTheme} from "emotion-theming";
+import styled from "@emotion/styled";
 
 const Sidebar = (props) => {
     const [collapsed, setCollapsed] = useState(true);
+    const theme = useTheme();
+
+    const Wrapper = styled.div`
+        display:flex;
+        background-color: ${theme.primary};
+        color: ${theme.primaryText};
+    `
 
     const toggleNavbar = () => setCollapsed(!collapsed);
     const isOpen = false;
     const cn = isOpen ? "d-block" : "d-none"
 
     return (
-        <div className={"d-flex bg-primary"}>
-            <IconContext.Provider value={{ color: "white", className: "global-class-name" }}>
+        <Wrapper>
+            <IconContext.Provider value={{ color: theme.primaryText }}>
                 <Navbar color="faded" light className={"flex-column p-0"}>
                 <Nav vertical>
                     <NavItem className={"py-1"}>
                         <NavLink href="#" className="d-flex align-items-center">
                             <FaHome/>
-                            <span className={cn}>Home</span>
+                            {/*<span className={cn}>Home</span>*/}
                         </NavLink>
                     </NavItem>
                     <NavItem  className={"py-1"}>
                         <NavLink href="#"  className="d-flex align-items-center">
                             <RiTeamLine/>
-                            <span>Team</span>
+                            {/*<span>Team</span>*/}
                         </NavLink>
                     </NavItem>
                     <NavItem  className={"py-1"}>
                         <NavLink href="#"  className="d-flex align-items-center">
                             <FaCubes/>
-                            <span>Practice</span>
+                            {/*<span>Practice</span>*/}
                         </NavLink>
                     </NavItem>
 
@@ -41,26 +50,26 @@ const Sidebar = (props) => {
                     <NavItem  className={"py-1"}>
                         <NavLink href="#" className="d-flex align-items-center">
                             <FaUserCircle/>
-                            <span>Account</span>
+                            {/*<span>Account</span>*/}
                         </NavLink>
                     </NavItem>
                     <NavItem  className={"py-1"}>
                         <NavLink href="#" className="d-flex align-items-center">
                             <AiFillSetting/>
-                            <span>Settings</span>
+                            {/*<span>Settings</span>*/}
                         </NavLink>
                     </NavItem>
                     <NavItem  className={"py-1"}>
                         <NavLink href="#" className="d-flex align-items-center">
                             <FaInfo/>
-                            <span>About</span>
+                            {/*<span>About</span>*/}
                         </NavLink>
                     </NavItem>
 
                 </Nav>
             </Navbar>
             </IconContext.Provider>
-        </div>
+        </Wrapper>
     );
 }
 

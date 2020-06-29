@@ -24,17 +24,19 @@ export const MODE = {
             muted:gray[400],
         },
         background:{
-            normal:black,
+            normal:"#1d2124",
+            light:"#545b62",
             muted:gray[700],
         }
     },
     LIGHT:{
         font: {
-            normal:black,
+            normal:"#1d2124",
             muted:gray[700],
         },
         background:{
             normal:white,
+            light:"#e9ecef",
             muted:gray[400],
         }
     },

@@ -1,11 +1,21 @@
 import React from 'react';
 import { Container, Card,  Row, Col,  Button, CardImg, CardTitle, CardText, CardColumns,
     CardSubtitle, CardBody } from 'reactstrap';
-const Default = (props) => {
+import tw, { css } from 'twin.macro'
+import {useTheme} from "emotion-theming";
 
+
+const Background  = theme => ({
+    backgroundColor: theme.background.muted,
+})
+const Default = (props) => {
+    const theme = useTheme();
     return (
         <React.Fragment>
-        <Container fluid className="py-3 bg-light">
+        <div css={[
+            tw`p-3 mx-auto w-full`,
+            css`background-color: ${theme.background.light};`
+        ]}>
             <CardColumns>
                 <Card>
                     <CardImg top width="100%" src="/assets/256x186.svg" alt="Card image cap" />
@@ -47,7 +57,7 @@ const Default = (props) => {
                     <Button color="secondary">Button</Button>
                 </Card>
             </CardColumns>
-        </Container>
+        </div>
         </React.Fragment>
     );
 }

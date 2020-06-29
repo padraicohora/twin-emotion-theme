@@ -12,19 +12,27 @@ import {
     DropdownMenu,
     DropdownItem,
     Form,
-    NavbarText, Label, Input, FormGroup, CustomInput, Col
+    NavbarText, Label, Input, FormGroup, CustomInput, Col, Button, Fade
 } from 'reactstrap';
 import {AiOutlineMenuUnfold} from "react-icons/ai"
 import logoBlack from "../assets/logoBlack.svg";
 import { GithubPicker  } from 'react-color';
 import {THEME} from "../styles/theme";
 import {  useTheme } from 'emotion-theming'
-import {ColorOptionStyles, IconStyles, NavbarStyles} from "../styles/components/Header_Styles";
+import {
+    ColorOptionStyles,
+    IconStyles,
+    LogoStyles,
+    NavbarStyles,
+    SwatchStyles, SwitchStyles
+} from "../styles/components/Header_Styles";
+import {LinkHover} from "../styles/utilStyles";
 
 const Header = (props) => {
 
     const [darkMode, toggleDarkMode] = useState(false)
     const [color, changeColor] = useState("BLUE")
+    const [pickerOpen, onToggleColorPicker] = useState(false)
 
     const mappedColors = () => {
         let colourValues = [];
@@ -43,24 +51,27 @@ const Header = (props) => {
         return Object.keys(colourObject).find(key => colourObject[key] === colourValue)
     }
 
-    const activeTheme = getThemeByColor(coloursObj, theme.primary)
-
-
-    const onChangeColor = (color, ev) => {
-        const newTheme = getThemeByColor(coloursObj,color.hex)
-        console.log(`newTheme`, newTheme)
-        changeColor(newTheme)
-    }
-
-    const onSubmitTheme = (e) => {
-        e.preventDefault();
+    const onChangeMode = (e) => {
+        toggleDarkMode(e.target.checked)
         props.onChangeTheme({
-            mode: darkMode,
-            color: color
+            ...theme,
+            mode:e.target.checked,
         })
     }
 
+    const onClickSwatch = () => {
+        onToggleColorPicker(!pickerOpen)
+    }
 
+    const onChangeColor = (color, ev) => {
+        const theme = getThemeByColor(coloursObj,color.hex)
+        changeColor(theme)
+        props.onChangeTheme({
+            color: theme
+        })
+        if(pickerOpen)
+            onToggleColorPicker(false)
+    }
 
     return (
         <div className={"shadow-sm position-relative"}>
@@ -71,46 +82,53 @@ const Header = (props) => {
                                          css={IconStyles}
                     />
                 <NavbarBrand href="/" className={"p-0"}>
-                    <img style={{height:"50px"}} src={logoBlack}/>
+                    <h1 css={LogoStyles}>LOGO</h1>
                 </NavbarBrand>
                 <Nav className="ml-auto" navbar>
                 <UncontrolledDropdown  nav inNavbar>
-                    <DropdownToggle nav caret>
+                    <DropdownToggle nav caret css={LinkHover}>
                         Theme Options
                     </DropdownToggle>
                     <DropdownMenu right>
-                        <Form onSubmit={e => onSubmitTheme(e)}>
+                        <div className={"px-2"}>
                             <FormGroup>
                                 <Label for="exampleCheckbox">Mode</Label>
                                 <div>
                                     <CustomInput type="switch"
                                                  id="exampleCustomSwitch"
                                                  checked={darkMode}
-                                                 onChange={() => toggleDarkMode(!darkMode)}
+                                                 onChange={onChangeMode}
                                                  name="customSwitch"
+                                                 css={SwitchStyles}
                                                  label="Dark mode" />
                                 </div>
                             </FormGroup>
                             <FormGroup>
                                 <Label for="exampleCustomSelect">Color</Label>
-                                <CustomInput type="select" id="exampleCustomSelect"
-                                             name="customSelect"
-                                             onChange={e => changeColor(e.target.value)}
-                                             value={color}>
-                                    <option value="BLUE"> <div css={ColorOptionStyles}></div>Blue</option>
-                                    <option css={ColorOptionStyles} value="RED">Red</option>
-                                    <option css={ColorOptionStyles} value="PURPLE">Purple</option>
-                                    <option css={ColorOptionStyles} value="PINK">Pink</option>
-                                    <option css={ColorOptionStyles} value="ORANGE">Orange</option>
-                                    <option css={ColorOptionStyles} value="TEAL">Teal</option>
-                                </CustomInput>
-                                <GithubPicker colors={colourValues} onChange={onChangeColor}/>
+                                <div className={"d-flex"}>
+                                    <div css={SwatchStyles} onClick={onClickSwatch}/>
+                                    <span style={{
+                                        paddingLeft: "9px",
+                                        paddingTop: "4px",
+                                        color: theme.primary
+                                    }}>{color}</span>
+                                </div>
+                                <Fade in={pickerOpen}
+                                      className={"position-absolute"}
+                                      style={{right:"113px"}}
+                                      unmountOnExit="true">
+                                    <GithubPicker colors={colourValues}
+                                                  triangle="top-right"
+                                                  width="187px"
+                                                  onChange={onChangeColor}/>
+                                </Fade>
                             </FormGroup>
                             <DropdownItem divider />
-                            <DropdownItem onClick={onSubmitTheme}>
-                                Submit
-                            </DropdownItem>
-                        </Form>
+                            <Button block
+                                    color="primary">
+                                Customize
+                            </Button>
+                        </div>
                     </DropdownMenu>
                 </UncontrolledDropdown>
                 </Nav>
