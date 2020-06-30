@@ -27,6 +27,7 @@ import {
     SwatchStyles, SwitchStyles
 } from "../styles/components/Header_Styles";
 import {LinkHover} from "../styles/utilStyles";
+import {StyledButton} from "../Buttons";
 
 const Header = (props) => {
 
@@ -53,10 +54,7 @@ const Header = (props) => {
 
     const onChangeMode = (e) => {
         toggleDarkMode(e.target.checked)
-        props.onChangeTheme({
-            ...theme,
-            mode:e.target.checked,
-        })
+        props.onChangeTheme(e.target.checked)
     }
 
     const onClickSwatch = () => {
@@ -66,11 +64,12 @@ const Header = (props) => {
     const onChangeColor = (color, ev) => {
         const theme = getThemeByColor(coloursObj,color.hex)
         changeColor(theme)
-        props.onChangeTheme({
+        props.onChangeColor({
             color: theme
         })
-        if(pickerOpen)
+        if(pickerOpen) {
             onToggleColorPicker(false)
+        }
     }
 
     return (
@@ -124,10 +123,9 @@ const Header = (props) => {
                                 </Fade>
                             </FormGroup>
                             <DropdownItem divider />
-                            <Button block
-                                    color="primary">
+                            <StyledButton block>
                                 Customize
-                            </Button>
+                            </StyledButton>
                         </div>
                     </DropdownMenu>
                 </UncontrolledDropdown>

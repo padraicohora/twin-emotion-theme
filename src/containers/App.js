@@ -15,27 +15,28 @@ class App extends React.Component{
             title: "Light Theme",
             theme:  {...THEME.MODE.LIGHT, ...THEME.COLORS.BLUE}
         };
-        console.log(`theme`, THEME)
     }
 
-
-    onChangeTheme(theme){
-        const {mode = false, color = "BLUE"} = theme;
-        const themeMode =  mode ? "DARK" : "LIGHT";
-        console.log(`onChangeTheme theme`, color)
-        console.log(`THEME.COLORS`, THEME.COLORS[color])
+    onChangeTheme(isDark){
+        const themeMode =  isDark ? "DARK" : "LIGHT";
+        console.log(`isDark`, isDark)
         this.setState({
-            theme: {...THEME.MODE[themeMode], ...THEME.COLORS[color]}
+            theme: {...this.state.theme, ...THEME.MODE[themeMode]}
+        })
+    }
+
+    onChangeColor(option){
+        this.setState({
+            theme: {...this.state.theme, ...THEME.COLORS[option.color]}
         })
     }
 
     render() {
         return <ThemeProvider theme={this.state.theme}>
-            <Global
-                styles={cssGlobal}
-            />
+            <Global styles={cssGlobal}/>
             <main className={"vh-100 d-flex flex-column overflow-hidden"}>
-            <Header onChangeTheme={this.onChangeTheme.bind(this)}  />
+            <Header onChangeTheme={this.onChangeTheme.bind(this)}
+                    onChangeColor={this.onChangeColor.bind(this)} />
             <div className={"d-flex h-100"}>
                 <Sidebar/>
                 <Default/>

@@ -1,3 +1,6 @@
+import {primaryBg} from "../declarations";
+
+
 export const NavbarStyles = theme => ({
     backgroundColor: theme.background.normal,
     color: theme.font.normal,
@@ -17,14 +20,18 @@ export const LogoStyles = theme => ({
     fontWeight: 700,
     fontSize: "30px"
 })
-export const SwatchStyles = theme => ({
-    background: theme.primary,
-    height: "32px",
-    width: "32px",
-    border:"1px solid grey",
-    padding:"2px",
-    borderRadius:"3px"
-})
+export const SwatchStyles = theme => {
+    return {
+        ...primaryBg(theme),
+        height: "32px",
+        width: "32px",
+        border:"1px solid grey",
+        padding:"2px",
+        borderRadius:"3px"
+    }
+
+}
+
 export const SwitchStyles = theme => (`
       .custom-control-input:checked ~ .custom-control-label::before {
             color: #fff;
