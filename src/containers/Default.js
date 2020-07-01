@@ -5,6 +5,18 @@ import tw, { css } from 'twin.macro'
 import {useTheme} from "emotion-theming";
 import {StyledButton} from "../Buttons";
 
+import img1 from "../assets/img/img1.jpg";
+import img2 from "../assets/img/img2.jpg";
+import img3 from "../assets/img/img3.jpg";
+import {
+    InverseCard,
+    InverseTitleStyles,
+    PrimaryCard,
+    PrimayTitleStyles,
+    ThemeCard,
+    TitleStyles
+} from "../styles/components/Card_Styles";
+
 
 const Background  = theme => ({
     backgroundColor: theme.background.muted,
@@ -18,10 +30,10 @@ const Default = (props) => {
             css`background-color: ${theme.background.light};`
         ]}>
             <CardColumns>
-                <Card>
-                    <CardImg top width="100%" src="/assets/256x186.svg" alt="Card image cap" />
+                <Card css={ThemeCard}>
+                    <CardImg top width="100%" src={img1} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle>Card title</CardTitle>
+                        <CardTitle css={TitleStyles}>Card title</CardTitle>
                         <CardSubtitle>Card subtitle</CardSubtitle>
                         <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
                         <StyledButton>
@@ -29,12 +41,12 @@ const Default = (props) => {
                         </StyledButton>
                     </CardBody>
                 </Card>
-                <Card>
-                    <CardImg top width="100%" src="/assets/256x186.svg" alt="Card image cap" />
+                <Card  css={ThemeCard}>
+                    <CardImg top width="100%" src={img2} alt="Card image cap" />
                 </Card>
-                <Card>
+                <Card css={ThemeCard}>
                     <CardBody>
-                        <CardTitle>Card title</CardTitle>
+                        <CardTitle css={TitleStyles}>Card title</CardTitle>
                         <CardSubtitle>Card subtitle</CardSubtitle>
                         <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
                         <StyledButton>
@@ -42,17 +54,17 @@ const Default = (props) => {
                         </StyledButton>
                     </CardBody>
                 </Card>
-                <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
-                    <CardTitle>Special Title Treatment</CardTitle>
+                <Card body css={InverseCard}>
+                    <CardTitle css={InverseTitleStyles}>Special Title Treatment</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
                     <StyledButton>
                         View
                     </StyledButton>
                 </Card>
-                <Card>
-                    <CardImg top width="100%" src="/assets/256x186.svg" alt="Card image cap" />
+                <Card css={ThemeCard}>
+                    <CardImg top width="100%" src={img3} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle>Card title</CardTitle>
+                        <CardTitle css={TitleStyles}>Card title</CardTitle>
                         <CardSubtitle>Card subtitle</CardSubtitle>
                         <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
                         <StyledButton>
@@ -60,10 +72,10 @@ const Default = (props) => {
                         </StyledButton>
                     </CardBody>
                 </Card>
-                <Card body inverse color="primary">
-                    <CardTitle>Special Title Treatment</CardTitle>
+                <Card body  css={PrimaryCard}>
+                    <CardTitle css={PrimayTitleStyles}>Special Title Treatment</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <StyledButton>
+                    <StyledButton inverse>
                         View
                     </StyledButton>
                 </Card>

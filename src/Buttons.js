@@ -17,7 +17,19 @@ export const ButtonStyles = theme => {
             ...primaryLightBg(theme),
         }
     }
-
+}
+export const InverseButtonStyles = theme => {
+    return {
+        backgroundColor:theme.background.reverse,
+        color:theme.font.reverse,
+        borderColor:theme.background.reverse,
+        '&:hover, &:focus': {
+            ...primaryDarkBg(theme),
+        },
+        '&:active, &:not(:disabled):not(.disabled):active': {
+            ...primaryLightBg(theme),
+        }
+    }
 }
 
 export const Buttons = () => {
@@ -29,5 +41,6 @@ export const Buttons = () => {
 }
 
 export const StyledButton = (props) => {
-    return <Button {...props} css={ButtonStyles}>{props.children}</Button>
+    const styles = props.inverse ? InverseButtonStyles : ButtonStyles;
+    return <Button {...props} css={styles}>{props.children}</Button>
 }

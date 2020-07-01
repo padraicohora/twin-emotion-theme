@@ -1,6 +1,7 @@
 export const LinkHover = theme => ({
-    color:"inherit",
+    color:theme.primary,
+    fontWeight:600,
     "&:hover": {
-        color: theme.primary
+        color: theme.colorBackgroundLight
     }
 })

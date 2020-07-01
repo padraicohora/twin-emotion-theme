@@ -122,10 +122,10 @@ const Header = (props) => {
                                                   onChange={onChangeColor}/>
                                 </Fade>
                             </FormGroup>
-                            <DropdownItem divider />
-                            <StyledButton block>
-                                Customize
-                            </StyledButton>
+                            {/*<DropdownItem divider />*/}
+                            {/*<StyledButton block>*/}
+                                {/*Customize*/}
+                            {/*</StyledButton>*/}
                         </div>
                     </DropdownMenu>
                 </UncontrolledDropdown>

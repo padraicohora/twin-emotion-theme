@@ -13,7 +13,7 @@ const Sidebar = (props) => {
 
     const Wrapper = styled.div`
         display:flex;
-        background-color: ${theme.primary};
+        background-color: ${theme.colorBackgroundDark};
         color: ${theme.primaryText};
     `
 
