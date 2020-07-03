@@ -28,6 +28,7 @@ import {
 } from "../styles/components/Header_Styles";
 import {LinkHover} from "../styles/utilStyles";
 import {StyledButton} from "../Buttons";
+import tw, { css } from 'twin.macro'
 
 const Header = (props) => {
 
@@ -73,7 +74,8 @@ const Header = (props) => {
     }
 
     return (
-        <div className={"shadow-sm position-relative"}>
+        <div className={"shadow-sm position-relative "}
+             css={[tw`z-50`]}>
             <Navbar css={NavbarStyles}
                     expand="md"
                     className={"py-0 px-2"}>
@@ -98,7 +100,7 @@ const Header = (props) => {
                                                  checked={darkMode}
                                                  onChange={onChangeMode}
                                                  name="customSwitch"
-                                                 css={SwitchStyles}
+                                                 css={[SwitchStyles]}
                                                  label="Dark mode" />
                                 </div>
                             </FormGroup>

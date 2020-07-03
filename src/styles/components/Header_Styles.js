@@ -1,4 +1,4 @@
-import {primaryBg} from "../declarations";
+import {bg_primary, primaryBg} from "../declarations";
 
 
 export const NavbarStyles = theme => ({
@@ -22,7 +22,7 @@ export const LogoStyles = theme => ({
 })
 export const SwatchStyles = theme => {
     return {
-        ...primaryBg(theme),
+        ...bg_primary(theme),
         height: "32px",
         width: "32px",
         border:"1px solid grey",
@@ -34,7 +34,6 @@ export const SwatchStyles = theme => {
 
 export const SwitchStyles = theme => (`
       .custom-control-input:checked ~ .custom-control-label::before {
-            color: #fff;
             border-color: ${theme.primary};
             background-color: ${theme.primary};
     }

@@ -1,36 +1,45 @@
 import React from 'react'
 // import styled from '@emotion/styled'
 import { Button } from 'reactstrap';
-import {primaryBg, primaryDarkBg, primaryLightBg, primaryText} from "./styles/declarations";
+import {
+    bg_primary,
+    bg_primaryDark,
+    bg_primaryLight,
+    text_primary
+} from "./styles/declarations";
+
 
 // import 'twin.macro'
 
 export const ButtonStyles = theme => {
     return {
-        ...primaryBg(theme),
-        ...primaryText(theme),
+        ...bg_primary(theme),
+        ...text_primary(theme),
         borderColor:theme.primary,
         '&:hover, &:focus': {
-            ...primaryDarkBg(theme),
+            ...bg_primaryDark(theme),
         },
         '&:active, &:not(:disabled):not(.disabled):active': {
-            ...primaryLightBg(theme),
+            ...bg_primaryLight(theme),
         }
     }
 }
+
 export const InverseButtonStyles = theme => {
+    console.log(`bg_primaryLight(theme)`, bg_primaryLight(theme))
     return {
         backgroundColor:theme.background.reverse,
         color:theme.font.reverse,
         borderColor:theme.background.reverse,
         '&:hover, &:focus': {
-            ...primaryDarkBg(theme),
+            ...bg_primaryDark(theme),
         },
         '&:active, &:not(:disabled):not(.disabled):active': {
-            ...primaryLightBg(theme),
+            ...bg_primaryLight(theme),
         }
     }
 }
+
 
 export const Buttons = () => {
     return <div>

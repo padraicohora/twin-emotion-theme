@@ -26,7 +26,7 @@ const Default = (props) => {
     return (
         <React.Fragment>
         <div css={[
-            tw`p-3 mx-auto w-full`,
+            tw`p-3 mx-auto w-full overflow-auto`,
             css`background-color: ${theme.background.light};`
         ]}>
             <CardColumns>

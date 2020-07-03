@@ -1,5 +1,8 @@
+import {primaryBg, primaryDarkBg, primaryLightBg, primaryText} from "./variables";
 
-export const primaryBg = (theme) => ({backgroundColor: theme.primary})
-export const primaryText = (theme) => ({color: theme.primaryText})
-export const primaryDarkBg = (theme) => ({backgroundColor: theme.colorBackgroundDark})
-export const primaryLightBg = (theme) => ({backgroundColor: theme.colorBackgroundLight})
+export const bg_primary = (theme) => ({backgroundColor:primaryBg(theme)})
+export const text_primary = (theme) => ({color: primaryText(theme)})
+export const bg_primaryDark = (theme) => ({backgroundColor: primaryDarkBg(theme)})
+export const bg_primaryLight = (theme) => ({backgroundColor: primaryLightBg(theme)})
+
+

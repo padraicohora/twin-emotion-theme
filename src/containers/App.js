@@ -6,7 +6,7 @@ import {THEME} from "../styles/theme";
 import { ThemeProvider } from 'emotion-theming'
 import { Global, css } from "@emotion/core";
 import {cssGlobal} from "../styles/bsOverrides";
-
+import 'twin.macro'
 class App extends React.Component{
     constructor(props){
         super(props);
@@ -37,7 +37,7 @@ class App extends React.Component{
             <main className={"vh-100 d-flex flex-column overflow-hidden"}>
             <Header onChangeTheme={this.onChangeTheme.bind(this)}
                     onChangeColor={this.onChangeColor.bind(this)} />
-            <div className={"d-flex h-100"}>
+            <div className={"d-flex overflow-hidden"} tw="flex-auto" >
                 <Sidebar/>
                 <Default/>
             </div>
