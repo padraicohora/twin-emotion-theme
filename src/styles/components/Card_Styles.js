@@ -1,36 +1,44 @@
-import {primaryBg} from "../declarations";
 
+import {
+    modeBgNormal,
+    modeBgReverse,
+    modeFontMuted,
+    modeFontNormal,
+    modeFontReverse,
+    primaryBg,
+    primaryText
+} from "../theme/variables";
 
 export const ThemeCard = theme => ({
-    backgroundColor: theme.background.normal,
-    color: theme.font.normal,
-    borderColor:theme.background.normal,
+    backgroundColor: modeBgNormal(theme),
+    color:modeFontNormal(theme),
+    borderColor:modeBgNormal(theme),
 })
 
 export const InverseCard = theme => ({
-    backgroundColor: theme.background.reverse,
-    borderColor: theme.background.reverse,
-    color: theme.font.reverse,
+    backgroundColor: modeBgReverse(theme),
+    borderColor: modeBgReverse(theme),
+    color:modeFontReverse(theme),
 })
 
 export const PrimaryCard = theme => ({
-    backgroundColor: theme.primary,
-    borderColor: theme.primary,
-    color: theme.primaryText,
+    backgroundColor: primaryBg(theme),
+    borderColor: primaryBg(theme),
+    color: primaryText(theme),
 })
 
 export const TitleStyles = theme => ({
-    color: theme.font.muted,
+    color: modeFontMuted(theme),
     fontWeight: 600,
     fontSize: "larger",
 })
 
 export const InverseTitleStyles = theme => ({
     ...TitleStyles(theme),
-    color: theme.font.reverse,
+    color: modeFontReverse(theme),
 })
 
 export const PrimayTitleStyles = theme => ({
     ...TitleStyles(theme),
-    color: theme.primaryText,
+    color: primaryText(theme),
 })

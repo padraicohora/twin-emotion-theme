@@ -1,7 +1,7 @@
-import tailwind from "../../tailwind.config"
+import tailwind from "../../../tailwind.config"
 
 const {theme: {colors}} = tailwind
-const  {blue, gray, black, white} = colors
+const  { gray, white} = colors
 
 export const COLORS = {};
 

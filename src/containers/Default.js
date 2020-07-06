@@ -3,7 +3,7 @@ import { Container, Card,  Row, Col,  Button, CardImg, CardTitle, CardText, Card
     CardSubtitle, CardBody } from 'reactstrap';
 import tw, { css } from 'twin.macro'
 import {useTheme} from "emotion-theming";
-import {StyledButton} from "../Buttons";
+import {StyledButton} from "../styles/components/Buttons";
 
 import img1 from "../assets/img/img1.jpg";
 import img2 from "../assets/img/img2.jpg";

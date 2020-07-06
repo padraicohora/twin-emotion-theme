@@ -1,5 +1,5 @@
 import {css} from "@emotion/core";
-import {THEME} from "../styles/theme";
+import {THEME} from "../theme/theme";
 
 export const cssGlobal = (theme) => css`
 :root {

@@ -17,7 +17,7 @@ import {
 import {AiOutlineMenuUnfold} from "react-icons/ai"
 import logoBlack from "../assets/logoBlack.svg";
 import { GithubPicker  } from 'react-color';
-import {THEME} from "../styles/theme";
+import {THEME} from "../styles/theme/theme";
 import {  useTheme } from 'emotion-theming'
 import {
     ColorOptionStyles,
@@ -26,8 +26,8 @@ import {
     NavbarStyles,
     SwatchStyles, SwitchStyles
 } from "../styles/components/Header_Styles";
-import {LinkHover} from "../styles/utilStyles";
-import {StyledButton} from "../Buttons";
+import {LinkHover} from "../styles/override/utilStyles";
+import {StyledButton} from "../styles/components/Buttons";
 import tw, { css } from 'twin.macro'
 
 const Header = (props) => {
@@ -117,7 +117,7 @@ const Header = (props) => {
                                 <Fade in={pickerOpen}
                                       className={"position-absolute"}
                                       style={{right:"113px"}}
-                                      unmountOnExit="true">
+                                      unmountOnExit={true}>
                                     <GithubPicker colors={colourValues}
                                                   triangle="top-right"
                                                   width="187px"

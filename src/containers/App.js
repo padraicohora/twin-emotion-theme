@@ -2,10 +2,10 @@ import React from 'react';
 import Header from "../components/Header";
 import Default from "./Default";
 import Sidebar from "../components/Sidebar";
-import {THEME} from "../styles/theme";
+import {THEME} from "../styles/theme/theme";
 import { ThemeProvider } from 'emotion-theming'
 import { Global, css } from "@emotion/core";
-import {cssGlobal} from "../styles/bsOverrides";
+import {cssGlobal} from "../styles/override/bsOverrides";
 import 'twin.macro'
 class App extends React.Component{
     constructor(props){

@@ -1,21 +1,21 @@
-import {bg_primary, primaryBg} from "../declarations";
+import {bg_modeNormal, bg_primary, primaryBg, text_modeNormal, text_primary} from "../theme/declarations";
 
 
 export const NavbarStyles = theme => ({
-    backgroundColor: theme.background.normal,
-    color: theme.font.normal,
+    ...bg_modeNormal(theme),
+    ...text_modeNormal,
 })
 export const IconStyles = theme => ({
-    color: theme.primary,
+     ...text_primary(theme),
 })
 export const ColorOptionStyles = theme => ({
-    backgroundColor: theme.background.normal,
-    color: theme.font.normal,
+    ...bg_modeNormal(theme),
+    ...text_modeNormal,
     width: "12px",
     height: "12px"
 })
 export const LogoStyles = theme => ({
-    color: theme.font.normal,
+    ...text_modeNormal,
     lineHeight: "50px",
     fontWeight: 700,
     fontSize: "30px"
@@ -34,8 +34,8 @@ export const SwatchStyles = theme => {
 
 export const SwitchStyles = theme => (`
       .custom-control-input:checked ~ .custom-control-label::before {
-            border-color: ${theme.primary};
-            background-color: ${theme.primary};
+            border-color: ${primaryBg(theme)};
+            background-color: ${primaryBg(theme)};
     }
 `)
 

@@ -6,7 +6,7 @@ import {
     bg_primaryDark,
     bg_primaryLight,
     text_primary
-} from "./styles/declarations";
+} from "../theme/declarations";
 
 
 // import 'twin.macro'
