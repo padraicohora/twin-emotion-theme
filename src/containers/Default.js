@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Card,  Row, Col,  Button, CardImg, CardTitle, CardText, CardColumns,
+import { Container, Card,  Row, Col, CardImg, CardTitle, CardText, CardColumns,
     CardSubtitle, CardBody } from 'reactstrap';
 import tw, { css } from 'twin.macro'
 import {useTheme} from "emotion-theming";
-import {StyledButton} from "../styles/components/Buttons";
+// import {StyledButton} from "../styles/components/Buttons";
+import {Button} from "my-design-app"
 
 import img1 from "../assets/img/img1.jpg";
 import img2 from "../assets/img/img2.jpg";
@@ -36,9 +37,7 @@ const Default = (props) => {
                         <CardTitle css={TitleStyles}>Card title</CardTitle>
                         <CardSubtitle>Card subtitle</CardSubtitle>
                         <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                        <StyledButton>
-                            View
-                        </StyledButton>
+
                     </CardBody>
                 </Card>
                 <Card  css={ThemeCard}>
@@ -49,17 +48,17 @@ const Default = (props) => {
                         <CardTitle css={TitleStyles}>Card title</CardTitle>
                         <CardSubtitle>Card subtitle</CardSubtitle>
                         <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
-                        <StyledButton>
+                        <Button>
                             View
-                        </StyledButton>
+                        </Button>
                     </CardBody>
                 </Card>
                 <Card body css={InverseCard}>
                     <CardTitle css={InverseTitleStyles}>Special Title Treatment</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <StyledButton>
+                    <Button>
                         View
-                    </StyledButton>
+                    </Button>
                 </Card>
                 <Card css={ThemeCard}>
                     <CardImg top width="100%" src={img3} alt="Card image cap" />
@@ -67,17 +66,17 @@ const Default = (props) => {
                         <CardTitle css={TitleStyles}>Card title</CardTitle>
                         <CardSubtitle>Card subtitle</CardSubtitle>
                         <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
-                        <StyledButton>
+                        <Button>
                             View
-                        </StyledButton>
+                        </Button>
                     </CardBody>
                 </Card>
                 <Card body  css={PrimaryCard}>
                     <CardTitle css={PrimayTitleStyles}>Special Title Treatment</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <StyledButton inverse>
+                    <Button inverse>
                         View
-                    </StyledButton>
+                    </Button>
                 </Card>
             </CardColumns>
         </div>
